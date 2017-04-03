@@ -4,11 +4,12 @@
   "description": "Less import of Bootstrap4 Sass",
   "main": "dist/bootstrap.less",
   "scripts": {
-    "prepublish": "rm -rf dist; npm run less:root && npm run less:utils && npm run less:mixins",
+    "prepublish": "rm -rf dist; npm run less:root && npm run less:utils && npm run less:mixins && npm run less:rename",
     "postpublish": "git push; git push --tags",
     "less:root": "./node_modules/.bin/sass2less node_modules/bootstrap/scss/*.scss 'dist/{name}.less'",
     "less:utils": "./node_modules/.bin/sass2less node_modules/bootstrap/scss/utilities/*.scss 'dist/utilities/{name}.less'",
     "less:mixins": "./node_modules/.bin/sass2less node_modules/bootstrap/scss/mixins/*.scss 'dist/mixins/{name}.less'",
+    "less:rename": "grep -ilr 'scss' dist/* | xargs -I@ sed -i '' 's/scss/less/g' @;",
     "release:patch": "npm version patch && npm publish --access public",
     "release:minor": "npm version minor && npm publish --access public",
     "release:major": "npm version major && npm publish --access public"
