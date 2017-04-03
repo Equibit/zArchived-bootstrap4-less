@@ -1,6 +1,6 @@
 {
   "name": "@equibit/bootstrap4-less",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Less import of Bootstrap4 Sass",
   "main": "dist/bootstrap.less",
   "scripts": {
